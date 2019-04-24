@@ -46,17 +46,8 @@ public class MyArrayList<E> implements MyList<E> {
     }
 
     @Override
-    public boolean remove(int index) {
-        E[] temp = values;
-        try{
-            values = (E[]) new Object[temp.length - 1];
-            System.arraycopy(temp,0,values,0,index);
-            System.arraycopy(temp,index + 1, values, index, temp.length - index - 1);
-            return true;
-        }catch(ClassCastException e){
-            e.printStackTrace();
-        }
-        return false;
+    public boolean remove(int index) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("You cant use this operation whith this type of List!!!");
     }
 
     @Override
@@ -72,11 +63,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void clear() {
-        try{
-            values = (E[]) new Object[0];
-        }catch(ClassCastException e) {
-            e.printStackTrace();
-        }
+        throw new UnsupportedOperationException("You cant use this operation whith this type of List!!!");
     }
 
     @Override
